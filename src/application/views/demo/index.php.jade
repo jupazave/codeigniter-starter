@@ -6,9 +6,8 @@ code /src/codeigniter/application/controllers/Demo.php
 p To see the magic happen!
 h2 Check out following links to see dynamic pages with method arguments
 ul
-  - foreach( $random as $rand ):
+  - for( $i = 0; $i < count($random); $i++ ):
     li
-      - $link = '/demo/add/'.$rand
-      a(href=$link) Random Link with Argument 
-        = $rand
-  - endforeach
+      a(href=$links[$i]) Random Link with Argument 
+        = $random[$i]
+  - endfor

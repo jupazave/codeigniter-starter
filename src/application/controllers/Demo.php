@@ -23,6 +23,9 @@ class Demo extends CI_Controller {
 		$data['appname'] = 'codeigniter_starter';
 		$data['title'] = $data['appname'].' - demo view';
 		$data['random'] = array(rand(1, 100), rand(1, 100), rand(1, 100), rand(1, 100));
+		for($i = 0; $i < count($data['random']); $i++) {
+			$data['links'][$i] = '/demo/add/'.$data['random'][$i];
+		}
 		$this->load->view('templates/header');
 		$this->load->view('demo/index', $data);
 		$this->load->view('templates/footer');
@@ -30,6 +33,7 @@ class Demo extends CI_Controller {
 
 	public function add($number = 'default')
 	{
+		$data['title'] = 'Test with argument '.$number;
 		$data['num'] = $number;
 		$this->load->view('templates/header');
 		$this->load->view('demo/add', $data);
