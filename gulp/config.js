@@ -37,13 +37,14 @@ module.exports = {
     base: {
       src: [
         src + "/static/**/*.*",
+        src + "/static/.htaccess"
       ],
       dest: dest
     },
     application: {
       src: [
         src + "/application/**/*.*",
-        "!" + src + "/application/**/*.php.jade"
+        "!" + src + "/application/**/*.jade"
       ],
       dest: dest + "/application/"
     }
