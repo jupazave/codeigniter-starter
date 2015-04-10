@@ -1,5 +1,5 @@
 <?php
   $config['templates'] = array(
-    array('header' => 'templates/header'),
-    array('footer' => 'templates/footer')
+    array('header' => 'templates/partials/header'),
+    array('footer' => 'templates/partials/footer')
   );
