@@ -6,7 +6,7 @@
     ),
     array(
       'name' => 'author',
-      'content' => 'Bleech UG'
+      'content' => 'The Author'
     ),
     array(
       'name' => 'viewport',

@@ -26,7 +26,7 @@ class Layouts
     $this->CI->config->set_item('metainformations', $newConfig);
   }
 
-  public function addTemplates($templates = array()) {
+  public function add_templates($templates = array()) {
     $newTemplates = array_merge($this->CI->config->item('templates'), $templates);
     $this->CI->config->set_item('templates', $newTemplates);
   }
