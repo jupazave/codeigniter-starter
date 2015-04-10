@@ -1,0 +1,13 @@
+doctype html
+html
+  head
+    title= $title
+    - echo $meta_informations
+    - echo $head_include_stylesheets
+    - echo $head_include_scripts
+  body
+    - echo $body_start_include_scripts
+    - echo $header
+    - echo $content
+    - echo $footer
+    - echo $body_end_include_scripts

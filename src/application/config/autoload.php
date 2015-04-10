@@ -60,7 +60,7 @@ $autoload['packages'] = array();
 |	$autoload['libraries'] = array('user_agent' => 'ua');
 */
 
-$autoload['libraries'] = array();
+$autoload['libraries'] = array('layouts');
 
 
 /*
@@ -104,7 +104,7 @@ $autoload['helper'] = array('url', 'bleech');
 |
 */
 
-$autoload['config'] = array();
+$autoload['config'] = array('app_meta_informations', 'app_stylesheets', 'app_scripts', 'app_templates');
 
 
 /*

@@ -20,10 +20,11 @@ class Welcome extends CI_Controller {
 	 */
 	public function index()
 	{
-		$data['appname'] = 'codeigniter_starter';
-		$data['title'] = $data['appname'].' - index view';
-		$this->load->view('templates/header');
-		$this->load->view('index', $data);
-		$this->load->view('templates/footer');
+		$this->layouts->set_title('Welcome');
+		$this->layouts->set_metainformations(array(
+			array('name' => 'description', 'content' => 'Hello World')
+		));
+		$this->layouts->addTemplates(array(array('sidebar' => 'templates/sidebar')));
+		$this->layouts->view('default', array('content' => 'welcome_message'), array('sidebar' => 'Here comes the sidebar'));
 	}
 }
