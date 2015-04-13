@@ -1,0 +1,69 @@
+// Sprites
+spriteWidth($sprite, inverted = false)
+  if inverted
+    width ($sprite[4] / 2)
+  else
+    width $sprite[4]
+
+spriteHeight($sprite, inverted = false)
+  if inverted
+    height ($sprite[5] / 2)
+  else
+    height $sprite[5]
+
+spriteSize($sprite, inverted = false)
+  if inverted
+    background-size ($sprite[6] / 2) ($sprite[7] / 2)
+  else
+    background-size $sprite[6] $sprite[7]
+
+spritePosition($sprite, inverted = false)
+  if inverted
+    background-position ($sprite[2] / 2) ($sprite[3] / 2)
+  else
+    background-position $sprite[2] $sprite[3]
+
+spriteImage($sprite)
+  background-image url($sprite[8])
+
+spriteRetinaImage($sprite)
+  if $sprite[9]
+    background-image url($sprite[9])
+
+sprite($sprite, size = true, retina = false, inverted = false)
+  spriteImage($sprite, inverted)
+  spritePosition($sprite, inverted)
+  background-repeat: no-repeat
+  if size
+    spriteWidth($sprite, inverted)
+    spriteHeight($sprite, inverted)
+
+  if retina
+    @media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2/1), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and ( min-resolution: 2dppx)
+      spriteSize($sprite, inverted)
+      spriteRetinaImage($sprite)
+
+/*
+The `sprites` mixin generates identical output to the CSS template
+  but can be overridden inside of Stylus
+
+This must be run when you have at least 2 sprites.
+  If run with a single sprite, then there will be reference errors.
+
+sprites($spritesheet_sprites);
+*/
+sprites($sprites)
+  for $sprite in $sprites
+    $sprite_name = $sprite[9]
+    .{$sprite_name}
+      sprite($sprite)
+
+$input-placeholder()
+  &::-webkit-input-placeholder
+    {block}
+  &:-moz-placeholder
+    {block}
+  &::-moz-placeholder
+    {block}
+  &:-ms-input-placeholder
+    {block}

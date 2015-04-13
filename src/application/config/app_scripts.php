@@ -4,7 +4,7 @@
   );
 
   $config['scripts_body_start'] = array(
-    // 'scripts/analytics.js'
+    'scripts/body.js'
   );
 
   $config['scripts_body_end'] = array(

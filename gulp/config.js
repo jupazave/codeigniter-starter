@@ -11,7 +11,7 @@ module.exports = {
     open: false
   },
   styles: {
-    src: src + "/assets/styles/*.styl",
+    src: src + "/assets/styles/app.styl",
     dest: dest + "/assets/styles"
   },
   bootstrap: {
@@ -23,8 +23,43 @@ module.exports = {
     },
     dest: vendorSrc,
   },
+  sprites: {
+    spriteJPG: {
+      src: [src + '/assets/sprites/**/*.{jpg,jpeg}', '!' + src + '/assets/sprites/*.jpg'],
+      settings: {
+        imgName: 'sprite@2x.jpg',
+        imgPath: '../images/sprite.jpg',
+        cssName: '_spriteJPG.styl',
+        cssFormat: 'stylus',
+        cssTemplate: './gulp/tasks/sprites/stylus.template.mustache',
+        engine: 'canvassmith',
+        cssVarMap: function (sprite) {
+          sprite.name = 'jpg-' + sprite.name;
+          sprite.retina_image = '../images/sprite@2x.jpg';
+        },
+        cssOpts: {functions: false}
+      },
+      dest: src + '/assets/sprites'
+    },
+    spritePNG: {
+      src: [src + '/assets/sprites/**/*.png', '!' + src + '/assets/sprites/*.png'],
+      settings: {
+        imgName: 'sprite@2x.png',
+        imgPath: '../images/sprite.png',
+        cssName: '_spritePNG.styl',
+        cssTemplate: './gulp/tasks/sprites/stylus.template.mustache',
+        engine: 'canvassmith',
+        cssVarMap: function (sprite) {
+          sprite.name = 'png-' + sprite.name;
+          sprite.retina_image = '../images/sprite@2x.png';
+        },
+        cssOpts: {functions: false}
+      },
+      dest: src + '/assets/sprites'
+    }
+  },
   images: {
-    src: src + "/assets/images/**",
+    src: [src + "/assets/images/**"],
     dest: dest + "/assets/images"
   },
   templates: {
@@ -47,6 +82,10 @@ module.exports = {
         "!" + src + "/application/**/*.jade"
       ],
       dest: dest + "/application/"
+    },
+    fonts: {
+      src: src + "/assets/fonts/**/*.*",
+      dest: dest + "/assets/fonts/"
     }
   },
   browserify: {
@@ -56,6 +95,12 @@ module.exports = {
         entries: src + "/assets/scripts/app.coffee",
         dest: dest + "/assets/scripts",
         outputName: "app.js",
+        extensions: [".coffee"]
+      },
+      {
+        entries: src + "/assets/scripts/body.coffee",
+        dest: dest + "/assets/scripts",
+        outputName: "body.js",
         extensions: [".coffee"]
       }
     ]
@@ -71,7 +116,11 @@ module.exports = {
     },
     vendorJS: {
       src: [
-        vendorSrc + '/jquery-1.11.2.min.js'
+        vendorSrc + '/jquery-1.11.2.min.js',
+        vendorSrc + '/html5shiv.min.js',
+        vendorSrc + '/html5shiv-print.min.js',
+        vendorSrc + '/picturefill.min.js',
+        vendorSrc + '/throttle-debounce.min.js'
       ],
       name: 'vendor.js',
       dest: dest + '/assets/scripts/'

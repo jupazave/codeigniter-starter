@@ -6,7 +6,7 @@ var config       = require('../config').styles;
 var sourcemaps   = require('gulp-sourcemaps');
 var autoprefixer = require('gulp-autoprefixer');
 
-gulp.task('styles', ['images'], function() {
+gulp.task('styles', ['images', 'sprites'], function() {
   return gulp.src(config.src)
     .pipe(sourcemaps.init())
     .pipe(stylus({
