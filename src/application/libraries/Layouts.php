@@ -62,6 +62,10 @@ class Layouts
     return $templates;
   }
 
+  public function load_module($view, $params = array()) {
+    return $this->CI->load->view($view, $params, true);
+  }
+
   public function view($view_name = 'default', $layouts = array(), $params = array(), $default = true)
   {
     // Set Template Name
