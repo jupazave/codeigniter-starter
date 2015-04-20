@@ -32,14 +32,14 @@ class Demo extends CI_Controller {
 		$this->layouts->view('default', array('content' => 'demo/index'), $data);
 	}
 
-	public function add($number = 'default')
+	public function html()
 	{
-		$data['num'] = $number;
+		$data['modules']['html'] = $this->layouts->load_module('modules/module-html');
 
-		$this->layouts->set_title('Demo - Argument '.$number);
+		$this->layouts->set_title('Demo - HTML Elements');
 		$this->layouts->set_metainformations(array(
-			array('name' => 'description', 'content' => 'Hello World')
+			array('name' => 'description', 'content' => 'HTML Elements')
 		));
-		$this->layouts->view('default', array('content' => 'demo/add'), $data);
+		$this->layouts->view('default', array('content' => 'demo/html'), $data);
 	}
 }
