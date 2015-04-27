@@ -24,6 +24,6 @@ class Welcome extends CI_Controller {
 		$this->layouts->set_metainformations(array(
 			array('name' => 'description', 'content' => 'Hello World')
 		));
-		$this->layouts->view('default', array('content' => 'welcome_message'));
+		$this->layouts->view('default/index', array('content' => 'page_templates/index/index'));
 	}
 }

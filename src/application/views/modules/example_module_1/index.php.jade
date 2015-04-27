@@ -1,0 +1,7 @@
+.module.example-module-1
+  h1 example-module-1: index
+  ul
+    - foreach($data as $key => $value):
+      li
+        - echo $key . ': ' . $value
+    - endforeach;

@@ -1,2 +1,25 @@
-header.header-main
-  p Put the header here in /views/templates/partials/header.php.jade
+header#header-main
+  .container
+    nav.navbar.navbar-default
+      .navbar-header
+        button.navbar-toggle.collapsed(data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar")
+        a.navbar-brand(href="/") Code Igniter Starter
+      #navbar.navbar-collapse.collapse
+        ul.nav.navbar-nav
+          li
+            a(href="/") Home
+          li
+            a.dropdown-toggle(href="#" data-toggle="dropdown" role="button" aria-expanded="false") Demos 
+              span.caret
+            ul.dropdown-menu(role="menu")
+              li
+                a(href="/demo/html/") HTML-Demo
+              li
+                a(href="/demo/flexslider/") Flexslider
+              li
+                a(href="/demo/fancybox/") Fancybox
+              li
+                a(href="/demo/bloglist/") Blog
+
+          li
+            a(href="/demo/") Documentation

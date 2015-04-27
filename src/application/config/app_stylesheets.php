@@ -1,4 +1,5 @@
 <?php
   $config['stylesheets'] = array(
-    'styles/app.css'
+    'styles/app.css',
+    'styles/vendor.css'
   );

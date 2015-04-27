@@ -1,1 +1,11 @@
 console.log 'app.js loaded!'
+
+require './modules/html/default'
+require './modules/flexslider/default'
+require './modules/flexslider/carousel'
+require './modules/flexslider/thumbs'
+require './modules/fancybox/default'
+require './modules/textblock/default'
+require './modules/bloglist/default'
+require './modules/post/default'
+require './modules/pagination/default'

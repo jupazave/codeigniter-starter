@@ -1,0 +1,29 @@
+.module.post
+  a.btn.btn-primary(href="/demo/bloglist/") Back to all posts
+  hr
+  article
+    header
+      h1
+        - echo $d['title'];
+
+    section
+      - echo $d['content'];
+
+    hr
+
+    footer
+      .row
+        .col-md-3
+          p.author
+            | written by 
+            strong
+              - echo $d['author'];
+        .col-md-3
+          p.date
+            - echo 'Posted at ' . $d['date'];
+  hr
+
+  - $prev_post = '/demo/post/'.$previous_post_link;
+  - $next_post = '/demo/post/'.$next_post_link;
+  a.btn.btn-primary(href=$prev_post) Previous Post
+  a.btn.btn-primary(href=$next_post) Next Post

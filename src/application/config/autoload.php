@@ -60,7 +60,7 @@ $autoload['packages'] = array();
 |	$autoload['libraries'] = array('user_agent' => 'ua');
 */
 
-$autoload['libraries'] = array('layouts');
+$autoload['libraries'] = array('layouts', 'module_handler', 'developement');
 
 
 /*
@@ -88,7 +88,7 @@ $autoload['drivers'] = array();
 |	$autoload['helper'] = array('url', 'file');
 */
 
-$autoload['helper'] = array('url', 'bleech');
+$autoload['helper'] = array('url', 'bleech', 'module', 'area');
 
 
 /*
@@ -104,7 +104,7 @@ $autoload['helper'] = array('url', 'bleech');
 |
 */
 
-$autoload['config'] = array('app_meta_informations', 'app_stylesheets', 'app_scripts', 'app_templates');
+$autoload['config'] = array('app_meta_informations', 'app_stylesheets', 'app_scripts', 'app_templates', 'areas');
 
 
 /*

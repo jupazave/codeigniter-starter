@@ -1,0 +1,14 @@
+.module.bloglist
+  ul.posts
+    - foreach($d as $post):
+      - $link = '/demo/post/' . $post['id'];
+      a(href=$link)
+        li.post
+          header
+            h3
+              - echo $post['headline']
+            p.author
+              - echo $post['author']
+          article
+            - echo $post['content']
+    - endforeach;

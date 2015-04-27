@@ -1,0 +1,7 @@
+.module.fancybox
+  ul.images
+    - foreach($d['images'] as $image):
+      li.image
+        a.fblink(href=$image['image'])
+          img(src=$image['thumb'])
+    - endforeach;

@@ -64,9 +64,9 @@ module.exports = {
   },
   templates: {
     PHP: {
-      src: src + "/application/views/**/*.php.jade",
-      dest: dest + "/application/views/"
-    },
+      src: src + "/application/**/*.php.jade",
+      dest: dest + "/application/"
+    }
   },
   copy: {
     base: {
@@ -120,14 +120,19 @@ module.exports = {
         vendorSrc + '/html5shiv.min.js',
         vendorSrc + '/html5shiv-print.min.js',
         vendorSrc + '/picturefill.min.js',
-        vendorSrc + '/throttle-debounce.min.js'
+        vendorSrc + '/throttle-debounce.min.js',
+        vendorSrc + '/bootstrap/javascripts/bootstrap.js',
+        vendorSrc + '/jquery.flexslider-min.js',
+        vendorSrc + '/jquery.fancybox.pack.js'
       ],
       name: 'vendor.js',
       dest: dest + '/assets/scripts/'
     },
     vendorCSS: {
       src: [
-        vendorSrc + '/bootstrap.css'
+        vendorSrc + '/bootstrap.css',
+        vendorSrc + '/flexslider.css',
+        vendorSrc + '/jquery.fancybox.css'
       ],
       name: 'vendor.css',
       dest: dest + '/assets/styles'

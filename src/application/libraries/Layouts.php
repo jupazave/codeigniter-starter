@@ -5,6 +5,7 @@ class Layouts
   private $CI;
   private $layout_title = null;
   private $layout_template = 'default';
+  private $global_areas = array();
 
   public function __construct()
   {
@@ -13,6 +14,8 @@ class Layouts
     $this->CI->config->load('app_scripts');
     $this->CI->config->load('app_meta_informations');
     $this->CI->config->load('app_templates');
+
+    $this->set_global_areas();
   }
 
   public function set_title($title)
@@ -62,10 +65,6 @@ class Layouts
     return $templates;
   }
 
-  public function load_module($view, $params = array()) {
-    return $this->CI->load->view($view, $params, true);
-  }
-
   public function view($view_name = 'default', $layouts = array(), $params = array(), $default = true)
   {
     // Set Template Name
@@ -92,6 +91,22 @@ class Layouts
     }
 
     // render views
-    $this->CI->load->view('templates/'.$this->layout_template, $params);
+    $this->CI->load->view('layouts/'.$this->layout_template, $params);
+  }
+
+  private function set_global_areas() {
+    $areas = $this->CI->config->item('areas');
+    foreach($areas as $area => $area_content) {
+      $this->global_areas[$area] = $area_content;
+    }
+  }
+
+  public function get_global_areas() {
+    $data_area = array();
+    foreach($this->global_areas as $area => $area_content) {
+      $area_obj = new Area_Helper($area, $area_content);
+      $data_area[$area] = $area_obj;
+    }
+    return $data_area;
   }
 }

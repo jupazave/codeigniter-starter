@@ -1,0 +1,7 @@
+.module.example-module-1
+  h1 example-module-1: edit
+  div.list
+    - foreach($data as $key => $value):
+      div.list-item
+        - echo $key . ' is edited to ' . $value
+    - endforeach;

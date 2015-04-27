@@ -1,0 +1,7 @@
+.module.fancybox.grouped
+  ul.images
+    - foreach($d['images'] as $image):
+      li.image
+        a.fblink(href=$image['image'] rel=$image['group'])
+          img(src=$image['thumb'])
+    - endforeach;

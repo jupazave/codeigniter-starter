@@ -1,0 +1,7 @@
+.module.flexslider.thumbs
+  .flexslider
+    ul.slides
+      - foreach($d['images'] as $image):
+        li(data-thumb=$image['thumb'])
+          img(src=$image['image'] title=$image['title'] alt=$image['title'])
+      - endforeach;
